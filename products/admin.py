@@ -1,7 +1,25 @@
 from django.contrib import admin
 
-from .models import Products
+from .models import Product, Comment
 
-@admin.register(Products)
+
+# to dispaly comment in products page in admin
+# Tabular inline & StackedInline
+class CommentsInline(admin.TabularInline):
+    model = Comment
+    fields = ['author', 'body', 'stars', 'active']
+    extra = 0  # won't show the empty box for comments in admin
+    # extra=1 will show only one empty box
+
+
+@admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
-    list_display=['title','price','active']
+    list_display = ['title', 'price', 'active']
+    inlines = [
+        CommentsInline,
+    ]
+
+
+@admin.register(Comment)
+class CommentAdmin(admin.ModelAdmin):
+    list_display = ['product', 'author', 'body', 'stars', 'active']
