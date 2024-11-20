@@ -2,6 +2,7 @@ from django.shortcuts import get_list_or_404,redirect,render,HttpResponse
 from django.views import generic
 from django.urls import reverse
 from django.utils.translation import gettext as _
+from django.contrib import messages
 
 from .models import Product,Comment
 from .forms import CommentForm
@@ -9,7 +10,10 @@ from .forms import CommentForm
 
 def test_translation(request):
     result=_('Hello')
-    return HttpResponse(result)
+    messages.success(request,'This is a success message.')
+    messages.warning(request,'This is a warning messages.')
+    messages.error(request,'This is a error message.')
+    return render(request,'products/testhello.html')
 
 class ProductListView(generic.ListView):
     queryset=Product.objects.filter(active=True)

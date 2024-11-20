@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 from pathlib import Path
 from environs import Env
 import os
+from django.contrib import messages
 
 env=Env()
 env.read_env()
@@ -48,11 +49,13 @@ INSTALLED_APPS = [
     "crispy_bootstrap5",
     'allauth',
     'allauth.account',
+    'rosetta',
 
     # local
     'accounts.apps.AccountsConfig',      # you can write 'accounts' only
     'pages.apps.PagesConfig',            # you can write 'pages' only
     'products.apps.ProductsConfig',      # you can write 'products' only
+    'cart.apps.CartConfig',
 ]
 
 SITE_ID=1
@@ -147,11 +150,19 @@ EMAIL_BACKEND='django.core.mail.backends.console.EmailBackend'
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+# LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE='fa'
 
-TIME_ZONE = 'UTC'
+LANGUAGES=(
+    ('en','English'),
+    ('fa','Persian'),
+)
+
+# TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Muscat'
 
 USE_I18N = True
+USE_I10N=True
 
 USE_TZ = True
 
@@ -185,3 +196,13 @@ ACCOUNT_USERNAME_REQUIRED=False                          # 'username' filed no n
 ACCOUNT_AUTHENTICATION_METHOD='email'                    # use email instead of username
 ACCOUNT_EMAIL_REQUIRED=True
 ACCOUNT_UNIQUE_EMAIL=True
+
+# for translation
+LOCALE_PATHS = [
+    os.path.join(BASE_DIR, 'locale'),
+]
+
+# for message framework
+MESSAGE_TAGS={
+    messages.ERROR:'danger'
+}

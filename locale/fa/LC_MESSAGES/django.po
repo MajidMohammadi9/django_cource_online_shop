@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-11 11:34+0400\n"
+"POT-Creation-Date: 2024-11-11 22:52+0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,50 +17,66 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: .\models.py:32
+#: .\products\models.py:32
 msgid "Very Bad"
 msgstr "خيلى بد"
 
-#: .\models.py:33
+#: .\products\models.py:33
 msgid "Bad"
 msgstr "بد"
 
-#: .\models.py:34
+#: .\products\models.py:34
 msgid "Normal"
 msgstr "معمولى"
 
-#: .\models.py:35
+#: .\products\models.py:35
 msgid "Good"
 msgstr "خوب"
 
-#: .\models.py:36
+#: .\products\models.py:36
 msgid "Perfect"
 msgstr "عالى"
 
-#: .\models.py:41
+#: .\products\models.py:41
 msgid "Comment Text"
 msgstr "متن نظر"
 
-#: .\models.py:42
+#: .\products\models.py:42
 msgid "What is your score"
-msgstr "امتياز شما به اين نظر"
+msgstr "امتياز شما به نظر"
 
-#: .\templates\products\product_detail.html:20
+#: .\products\templates\products\product_detail.html:20
 msgid "Product details of"
-msgstr "توضيحات محصول"
+msgstr "جزئيات محصول"
 
-#: .\templates\products\product_detail.html:43
+#: .\products\templates\products\product_detail.html:43
 msgid "$"
 msgstr "تومان"
 
-#: .\templates\products\product_detail.html:73
+#: .\products\templates\products\product_detail.html:73
 msgid "Product descriptions"
 msgstr "توضيحات محصول"
 
-#: .\templates\products\product_detail.html:149
+#: .\products\templates\products\product_detail.html:149
 msgid "Write your comment"
 msgstr "نظر خود را بنويسيد"
 
-#: .\views.py:11
+#: .\products\views.py:11
 msgid "Hello"
 msgstr "سلام"
+
+#: .\templates\_base.html:59
+msgid "Home"
+msgstr "خانه"
+
+#: .\templates\_base.html:62
+msgid "Weblog"
+msgstr "وبلاگ"
+
+#: .\templates\_base.html:65
+msgid "Pages"
+msgstr "صفحات"
+
+#: .\templates\_base.html:68
+msgid "Contact Us"
+msgstr "تماس با ما"
