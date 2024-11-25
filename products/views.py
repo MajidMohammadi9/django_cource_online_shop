@@ -6,6 +6,7 @@ from django.contrib import messages
 
 from .models import Product,Comment
 from .forms import CommentForm
+# from cart.forms import AddToCartProductForm
 
 
 def test_translation(request):
@@ -54,7 +55,8 @@ class ProductDetailView(generic.DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['comment_form'] = CommentForm()
-        #context['comments'] = self.object.comments.all()  # Assuming there is a related name `comments` on Product
+        # context['add_to_cart_form']=AddToCartProductForm()  # we use our own form
+        # context['comments'] = self.object.comments.all()  # Assuming there is a related name `comments` on Product
         # context['active_comments']=self.object.comments.filter(active=True)
         # context['active_comments']=self.active_comments()
         return context
@@ -68,6 +70,7 @@ class ProductDetailView(generic.DetailView):
             new_comment.author = request.user
             new_comment.product = self.object
             new_comment.save()
+            messages.success(request,_('Comment successfully created.'))
             return redirect(reverse('product_detail', args=[self.object.pk]))
 
         # If form is invalid, re-render the page with the invalid form and existing context
