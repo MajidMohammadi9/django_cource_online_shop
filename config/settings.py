@@ -43,10 +43,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.humanize',
 
     # third party
-    "crispy_forms",
-    "crispy_bootstrap5",
+    'jalali_date',
+    'crispy_forms',
+    'crispy_bootstrap5',
     'allauth',
     'allauth.account',
     'rosetta',
@@ -56,6 +58,7 @@ INSTALLED_APPS = [
     'pages.apps.PagesConfig',            # you can write 'pages' only
     'products.apps.ProductsConfig',      # you can write 'products' only
     'cart.apps.CartConfig',
+    'persian_translate.apps.PersianTranslateConfig',
 ]
 
 SITE_ID=1

@@ -55,6 +55,7 @@ class ProductDetailView(generic.DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['comment_form'] = CommentForm()
+    
         # context['add_to_cart_form']=AddToCartProductForm()  # we use our own form
         # context['comments'] = self.object.comments.all()  # Assuming there is a related name `comments` on Product
         # context['active_comments']=self.object.comments.filter(active=True)
