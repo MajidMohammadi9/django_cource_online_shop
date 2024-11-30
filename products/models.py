@@ -14,13 +14,14 @@ class ActiveCommentsManager(models.Manager):
 
 
 class Product(models.Model):
-    title=models.CharField(max_length=100)
-    description=RichTextField()
-    price=models.PositiveIntegerField(default=0)
-    active=models.BooleanField(default=True)
+    title=models.CharField(verbose_name=_('title'),max_length=100)
+    description=RichTextField(verbose_name=_('description'))
+    short_description=models.TextField(verbose_name=_('short description'),blank=True)
+    price=models.PositiveIntegerField(verbose_name=_('price'),default=0)
+    active=models.BooleanField(verbose_name=_('active'),default=True)
     image=models.ImageField(verbose_name=_('Product image'),upload_to='product/product_cover/',blank=True,)
     # datetime_created=models.DateTimeField(auto_now_add=True)
-    datetime_created=models.DateTimeField(default=timezone.now,verbose_name=_('Date Time of Creation'))
+    datetime_created=models.DateTimeField(verbose_name=_('Date Time of Creation'),default=timezone.now)
     datetime_modified=models.DateTimeField(auto_now=True)
 
 
@@ -41,12 +42,12 @@ class Comment(models.Model):
     ]
 
     product=models.ForeignKey(Product,on_delete=models.CASCADE,related_name='comments')
-    author=models.ForeignKey(get_user_model(),on_delete=models.CASCADE,related_name='comments',verbose_name='Comment Author')
+    author=models.ForeignKey(get_user_model(),on_delete=models.CASCADE,related_name='comments',verbose_name=_('Comment Author'))
     body=models.TextField(verbose_name=_('Comment Text'))
     stars=models.CharField(max_length=10,choices=PRODUCT_STARS,verbose_name=_('What is your score'))
-    datetime_created=models.DateTimeField(auto_now_add=True)
+    datetime_created=models.DateTimeField(verbose_name=_('Date Time of Creation'),auto_now_add=True)
     datetime_modified=models.DateTimeField(auto_now=True)
-    active=models.BooleanField(default=True)
+    active=models.BooleanField(verbose_name=_('active'),default=True)
 
     objects=models.Manager()
     active_comments_manager=ActiveCommentsManager()
