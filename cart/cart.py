@@ -63,6 +63,11 @@ class Cart:
         del self.session['cart']
         self.save()
 
+    def is_empty(self):
+        if self.cart:
+            return False
+        return True
+
     def get_total_price(self):
         product_ids=self.cart.keys()
         # products=Product.objects.filter(id__in=product_ids)

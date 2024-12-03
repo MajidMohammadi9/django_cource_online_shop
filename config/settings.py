@@ -60,6 +60,7 @@ INSTALLED_APPS = [
     'products.apps.ProductsConfig',      # you can write 'products' only
     'cart.apps.CartConfig',
     'persian_translate.apps.PersianTranslateConfig',
+    'orders.apps.OrdersConfig',
 ]
 
 SITE_ID=1
